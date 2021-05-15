@@ -1,0 +1,19 @@
+version: '3'
+
+volumes:
+  test-proj:
+
+services:
+  database-prod:
+    image: postgres:13.1-alpine
+    volumes:
+      - test-proj:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "test-db"
+      POSTGRES_USER: "eric"
+      POSTGRES_PASSWORD: "12523"
+    restart: always
+    ports:
+      - 31337:5432
+
+
